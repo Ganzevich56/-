@@ -80,42 +80,53 @@ const App: React.FC = () => {
             switch (step) {
               case 'welcome':
                 return (
-                  <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-4 animate-in fade-in zoom-in duration-1000">
-                    <div className="mb-8 p-4 bg-stone-100 rounded-full text-stone-800 animate-bounce">
-                      <Gift size={40} />
+                  <div className="relative flex flex-col items-center justify-center min-h-screen text-center px-4 animate-in fade-in zoom-in duration-1000 overflow-hidden">
+                    {/* Background Gift Icons */}
+                    <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
+                      <Gift size={120} className="absolute top-[10%] left-[15%] -rotate-12 text-stone-300" />
+                      <Gift size={80} className="absolute top-[60%] left-[5%] rotate-12 text-stone-400" />
+                      <Gift size={100} className="absolute top-[20%] right-[10%] rotate-6 text-stone-300" />
+                      <Gift size={90} className="absolute bottom-[15%] right-[20%] -rotate-6 text-stone-400" />
+                      <Gift size={60} className="absolute top-[45%] right-[5%] -rotate-12 text-stone-300" />
                     </div>
-                    <h1 className="text-5xl md:text-7xl mb-6 font-serif italic text-stone-800 leading-tight">З Днем Народження, Принцесо!</h1>
-                    <p className="text-xl md:text-2xl mb-12 text-stone-600 max-w-2xl font-light leading-relaxed">
-                      Тут мій маленький подарунок на твій день народження. Тисни на кнопочку!
-                    </p>
-                    <button 
-                      onClick={nextStep}
-                      className="px-12 py-5 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-all tracking-widest text-sm uppercase flex items-center gap-3 shadow-2xl hover:scale-105 active:scale-95 group"
-                    >
-                      Відкрити <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
+
+                    <div className="relative z-10 flex flex-col items-center justify-center">
+                      <div className="mb-8 p-4 bg-stone-100 rounded-full text-stone-800 animate-bounce inline-block">
+                        <Gift size={40} />
+                      </div>
+                      <h1 className="text-5xl md:text-7xl mb-6 font-serif italic text-stone-800 leading-tight max-w-4xl mx-auto">З Днем Народження, Принцесо!</h1>
+                      <p className="text-xl md:text-2xl mb-12 text-stone-600 max-w-2xl font-light leading-relaxed mx-auto">
+                        Тут мій маленький подарунок на твій день народження. Тисни на кнопочку!
+                      </p>
+                      <button 
+                        onClick={nextStep}
+                        className="px-12 py-5 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-all tracking-widest text-sm uppercase flex items-center gap-3 shadow-2xl hover:scale-105 active:scale-95 group mx-auto"
+                      >
+                        Відкрити <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
                   </div>
                 );
 
               case 'memory':
                 return (
                   <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-4 animate-in fade-in duration-1000 relative">
-                    <div className="space-y-8 max-w-3xl">
-                      <p className="text-xl md:text-3xl font-serif italic text-stone-600 leading-relaxed">
+                    <div className="space-y-6 max-w-4xl">
+                      <p className="text-xl md:text-3xl font-serif text-stone-600 leading-relaxed font-light">
                         Я пам’ятаю, ти казала, що дуже хочеш в одне красиве місце.
                       </p>
-                      <h2 className="text-2xl md:text-4xl font-serif text-stone-800 leading-snug">
+                      <p className="text-xl md:text-3xl font-serif text-stone-600 leading-relaxed font-light">
                         І я подумав, що бажання мають збуватися тихо і красиво...
-                      </h2>
-                      <p className="text-3xl md:text-5xl font-serif italic text-stone-900 font-bold pt-4">
-                        Особливо твої
                       </p>
+                      <h2 className="text-4xl md:text-6xl font-serif text-stone-900 italic font-bold pt-6 animate-pulse">
+                        Особливо твої
+                      </h2>
                     </div>
                     <button 
                       onClick={nextStep}
-                      className="mt-16 px-16 py-6 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-all tracking-widest text-sm uppercase font-bold flex items-center gap-3 shadow-xl hover:scale-105 active:scale-95 group"
+                      className="mt-20 px-16 py-6 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-all tracking-widest text-sm uppercase font-bold flex items-center gap-3 shadow-xl hover:scale-105 active:scale-95 group"
                     >
-                      Дізнатися куди <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                      Що я зробив? Тицяй сюди <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 );
@@ -140,10 +151,10 @@ const App: React.FC = () => {
                 return (
                   <div className="max-w-4xl mx-auto py-12 px-4 animate-in slide-in-from-bottom-4 duration-700 text-center relative">
                     <div className="mb-16">
-                      <p className="text-xl md:text-3xl font-bold text-stone-900 mb-2">Я хочу здійснити твою маленьку мрію та подарувати тобі</p>
-                      <h1 className="text-7xl md:text-9xl font-serif italic text-stone-900 mb-8">Рим</h1>
-                      <p className="text-stone-900 text-lg font-normal leading-relaxed max-w-2xl mx-auto">
-                        І хочу, щоб все складалось під твій ритм, твій настрій і твої бажання. Перше, що тобі потрібно це обрати свій тиждень у Вічному Місті.
+                      <p className="text-xl md:text-2xl font-serif text-stone-900 mb-2 font-medium">Я хочу здійснити твою маленьку мрію та подарувати тобі</p>
+                      <h1 className="text-7xl md:text-9xl font-serif italic text-stone-900 mb-8 font-bold">Рим</h1>
+                      <p className="text-stone-900 text-xl md:text-2xl font-serif leading-relaxed max-w-3xl mx-auto font-medium">
+                        І хочу, щоб все складалось під твій ритм, твій настрій і твої бажання. Перше, що тобі потрібно — це обрати свій тиждень у Вічному Місті.
                       </p>
                     </div>
 
@@ -224,8 +235,8 @@ const App: React.FC = () => {
                               <p className="text-xs text-stone-600 italic">{district.landmarksNearby}</p>
                             </div>
                             {choices.district === district.id && (
-                              <div className="mt-6 text-stone-900 flex items-center gap-2 text-xs font-bold uppercase tracking-widest animate-in fade-in slide-in-from-left-2">
-                                <Check size={16} className="text-green-600" /> Твій вибір
+                              <div className="mt-6 text-stone-900 flex items-center justify-center animate-in fade-in slide-in-from-bottom-2">
+                                <Check size={20} className="text-green-600" />
                               </div>
                             )}
                           </div>
@@ -270,8 +281,8 @@ const App: React.FC = () => {
                             <h3 className="text-2xl font-serif mb-3 text-stone-800">{rest.name}</h3>
                             <p className="text-stone-500 text-sm leading-relaxed font-light mb-4">{rest.description}</p>
                             {choices.restaurant === rest.id && (
-                              <div className="mt-6 text-stone-900 flex items-center gap-2 text-xs font-bold uppercase tracking-widest animate-in fade-in slide-in-from-top-2">
-                                <Check size={16} className="text-green-600" /> Обрано для нас
+                              <div className="mt-6 text-stone-900 flex items-center justify-center animate-in fade-in slide-in-from-top-2">
+                                <Check size={20} className="text-green-600" />
                               </div>
                             )}
                           </div>
@@ -410,12 +421,12 @@ const App: React.FC = () => {
                       Ти щойно створила свою подорож до Риму.<br />
                       <span className="italic font-normal text-stone-700">Дати, ритм, простір — усе так, як відчувається правильно для тебе.</span>
                     </h2>
-                    <p className="text-xl md:text-3xl text-stone-800 font-serif italic mb-16 max-w-2xl">
+                    <p className="text-xl md:text-3xl text-stone-800 font-serif italic mb-16 max-w-2xl mx-auto">
                       Все інше я беру на себе.
                     </p>
                     <button 
                       onClick={nextStep}
-                      className="px-16 py-6 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-all flex items-center gap-3 shadow-2xl hover:scale-105 active:scale-95 font-bold uppercase tracking-widest text-xs"
+                      className="px-16 py-6 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-all flex items-center gap-3 shadow-2xl hover:scale-105 active:scale-95 font-bold uppercase tracking-widest text-xs mx-auto"
                     >
                       Переглянути підсумок <ArrowRight size={18} />
                     </button>
@@ -426,16 +437,10 @@ const App: React.FC = () => {
                 return (
                   <div className="max-w-4xl mx-auto py-16 px-4 animate-in zoom-in duration-700 text-center relative">
                     <div className="space-y-6 mb-16 max-w-3xl mx-auto text-stone-800 font-serif text-xl md:text-2xl leading-relaxed">
-                      <h2 className="text-5xl md:text-6xl mb-12 italic font-bold">Твій Рим чекає</h2>
-                      <p>
-                        Це мій подарунок тобі. І мій спосіб сказати: <span className="font-bold">Я хочу робити тебе по справжньому щасливою</span>.
-                      </p>
-                      <p className="italic">
-                        Сподіваюсь, сьогодні у мене це вийшло...
-                      </p>
-                      <p className="text-3xl font-bold pt-6 text-stone-900">
-                        З днем народження, Олічка!
-                      </p>
+                      <p>Це мій подарунок тобі. І мій спосіб сказати:</p>
+                      <p className="font-bold text-stone-900">Я хочу робити тебе по справжньому щасливою.</p>
+                      <p>Сподіваюсь, сьогодні у мене це вийшло...</p>
+                      <p className="pt-4">З днем народження, Олічка!</p>
                     </div>
 
                     <div className="bg-white p-12 md:p-16 rounded-[3rem] shadow-2xl border border-stone-50 relative overflow-hidden text-left mb-16">
@@ -469,7 +474,7 @@ const App: React.FC = () => {
                               <p className="text-[10px] text-stone-400 uppercase tracking-[0.3em] mb-2 font-bold">Святкова вечеря</p>
                               <p className="text-3xl font-serif text-stone-800">{selectedRestaurant?.name || 'Chef\'s Table'}</p>
                               <div className="flex items-center gap-2 mt-2 text-stone-400 italic text-sm">
-                                <Heart size={14} className="fill-stone-400" /> Вже заброньовано
+                                <Heart size={14} className="fill-stone-400" />
                               </div>
                             </div>
                           </div>
