@@ -1,3 +1,4 @@
+
 import { Place } from './types';
 
 export const DISTRICTS: Place[] = [
@@ -60,7 +61,7 @@ export const ATMOSPHERIC_PLACES = [
   {
     name: 'Віа Маргутта (Via Margutta)',
     description: 'Вулиця художників, тиха і затишна, де кожен дворик схожий на живу картину.',
-    image: 'https://www.trevielite.ru/wp-content/uploads/2020/12/ulitsa-via-margutta-4.jpg'
+    image: 'https://romeing.b-cdn.net/wp-content/uploads/2025/09/cento-pittori-via-margutta-1-e1524846860673.jpg'
   },
   {
     name: 'Міст Святого Ангела (Ponte Sant\'Angelo)',
